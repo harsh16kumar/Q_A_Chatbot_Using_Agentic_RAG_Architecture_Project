@@ -1,0 +1,19 @@
+{
+  "repository": "Agentic-Chatbot",
+  "readme": "### END TO END PROJECT AGENTIC AI CHATBOT WITH WEB SCRAPING",
+  "requirements": "langchain\nlanggraph\nlangchain_community\nlangchain_core\nlangchain_groq\nfaiss-cpu\nstreamlit\ntavily-python",
+  "files_name": [
+    ".gitignore",
+    "README.md",
+    "requirements.txt",
+    "src/__init__.py",
+    "src/langgraph_agentic_ai/LLMS/__init__.py",
+    "src/langgraph_agentic_ai/__init__.py",
+    "src/langgraph_agentic_ai/app.py",
+    "src/langgraph_agentic_ai/graph/__init__.py",
+    "src/langgraph_agentic_ai/nodes/__init__.py",
+    "src/langgraph_agentic_ai/state/__init__.py",
+    "src/langgraph_agentic_ai/tools/__init__.py",
+    "src/langgraph_agentic_ai/ui/__init__.py"
+  ]
+}

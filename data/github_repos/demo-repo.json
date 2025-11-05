@@ -1,0 +1,12 @@
+{
+  "repository": "demo-repo",
+  "readme": "",
+  "requirements": "",
+  "files_name": [
+    "package.json",
+    "readme.md",
+    "src/app.js",
+    "src/constants.js",
+    "src/index.js"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "repository": "HoneyWell_hackathon",
+  "readme": "# Honeywell Anomaly Detection\n\nThis project uses **Machine Learning (Random Forest Classifier)** and **Z-score based anomaly detection** to classify product quality and identify anomalies in sensor/feature data.\n\n---\n\n## 🚀 Features\n- Trains a **Random Forest Classifier** to predict `Quality` from numeric features.\n- Scales features with **StandardScaler**.\n- Performs **Z-score anomaly detection**:\n  - Computes per-feature deviations from the \"correct\" class (`Quality = 1`).\n  - Extracts **top 7 most contributing features** for each anomaly.\n  - Calculates a weighted **Anomaly Score (1–100%)** combining max and mean deviations.\n- Saves:\n  - `model.pkl` → trained Random Forest model\n  - `scaler.pkl` → fitted StandardScaler\n  - `stats.pkl` → per-feature mean & std for anomaly detection\n  - `final_anomaly_output.csv` → merged dataset with predictions, anomaly scores, and top features\n  - `final_anomaly_output.pkl` → same as above in pickle format\n\n---\n\n## 📂 Project Structure\n|\n├── honey_well.csv\n├── app.py\n├── model.pkl\n├── scaler.pkl\n├── stats.pkl\n├── final_anomaly_output.csv\n├── final_anomaly_output.pkl\n└── README.md\n\n\n---\n\n## ⚙️ Installation & Setup\n\n1. Clone the repository:\n   ```bash\n   git clone https://github.com/<your-username>/honeywell-anomaly-detection.git\n   cd honeywell-anomaly-detection\n2. Install Dependencies:\n   ```bash\n   pip install -r requirements.txt\n3. Place your dataset:\n   Ensure honey_well.csv is present in the root directory.\n4. Run the script:\n   ```bash\n   python app.py\n\n📊 Outputs:Classification Report is printed for model performance.\n├──final_anomaly_output.csv includes:\n├──Predicted_Quality\n├──Anomaly_score% (1–100 scale)\n├──top_feature_1 … top_feature_7 (most influential anomaly features)\n\nAuthor - Harsh Kumar",
+  "requirements": "streamlit\npandas\nnumpy\nscikit-learn\nmatplotlib\nscipy\n",
+  "files_name": [
+    ".devcontainer/devcontainer.json",
+    ".gitignore",
+    "Honey_well.ipynb",
+    "README.md",
+    "app.py",
+    "features.pkl",
+    "final_anomaly_output.csv",
+    "final_anomaly_output.pkl",
+    "honey_well.csv",
+    "model.pkl",
+    "requirements.txt",
+    "scaler.pkl",
+    "stats.pkl"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "repository": "object_detection_COCO_forked",
+  "readme": "# Object Detection\n\nThis repository uses pre-trained MobileNet-SSD v3 model for Object Detection\nhttps://github.com/opencv/opencv/wiki/TensorFlow-Object-Detection-API\n\nThe model uses COCO dataset for training\nhttps://cocodataset.org/#overview\n\nThe COCO dataset consists of 80 classes of images (<a href=\"/labels.txt\">View all</a>) so the objects detected would belong from one of these classes only.\n\nYou can download the test_video from: <br/>\nhttps://drive.google.com/file/d/1EPngtG-X4NCOoadeo1Fk556Yhejuvp5C/view?usp=sharing<br/>\nor you can use any video of your choice\n<h2> Required Libraries </h2>\n\n    pip install opencv-python\n    \n</br>\n<h2> Usage </h2>\nThis repository has 2 files: <br/>\n1. detection_code_image.py <br/>\n2. detection_code_video.py <br/>\n\n<h3> Image </h3>\n\nChange the 'your image path' in detection_code_image.py at line:23 to the path of your image to detect objects in your Image\n\n<h4> Example Input Image: </h4>\n<img src=\"/test_image.png\" width=500>\n<h4> Example Output Image: </h4>\n<img src=\"/test_output.png\" width=500>\n\n<h3> Video </h3>\n\nChange the 'your image path' in detection_code_video.py at line: 21 to the path of your video to detect objects in your Video\n\n<h4> Example Input Video: </h4>\n<a href=\"https://drive.google.com/file/d/1EPngtG-X4NCOoadeo1Fk556Yhejuvp5C/view?usp=sharing\"><img src=\"/input_video_thumb.png\" width=500></a>\n\n<h4> Example Output Video: </h4>\n<a href=\"https://drive.google.com/file/d/1y52-GFJHX28FRxgSJZVlkGvQsnY8ML75/view?usp=sharing\"><img src=\"/output_thumb.png\" width=500></a>\n",
+  "requirements": "",
+  "files_name": [
+    "README.md",
+    "detection_code_image.py",
+    "detection_code_video.py",
+    "frozen_inference_graph.pb",
+    "input_video_thumb.png",
+    "labels.txt",
+    "output_thumb.png",
+    "ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt",
+    "test_image.png",
+    "test_output.png"
+  ]
+}

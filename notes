@@ -1,0 +1,13 @@
+
+# ---- Build Context ---- st.session_state["context"] = { "name": name, "phone": phone, "email": email, "linkedin": linkedin, "github": github, "education": st.session_state["education"], "coursework": st.session_state["coursework"], "languages": st.session_state["languages"], "tools": st.session_state["tools"], "projects": st.session_state.get("projects", []), "experience": st.session_state["experience"], "achievements": st.session_state["achievements"], } 
+# # ------------------------------- # Generate LaTeX # ------------------------------- if st.button("Generate LaTeX from context"): ctx = st.session_state.get("context") if not ctx: st.warning("No context yet. Fill details or fetch projects first.") else: tex = generate_resume_latex(ctx) st.subheader("Generated LaTeX") st.code(tex, language="latex") st.download_button("Download .tex file", data=tex, file_name="resume.tex", mime="text/x-tex")
+
+
+
+streamlit app chagnes
+
+line 386 not comment and 387 comment
+
+remove load existing summary
+
+remove comment 326 to 333

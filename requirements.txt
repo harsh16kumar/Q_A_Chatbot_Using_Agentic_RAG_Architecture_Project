@@ -1,0 +1,35 @@
+# langchain
+# langchain-community
+# langchain-core
+# langchain-text-splitters
+# langchain-groq
+# langgraph
+# faiss-cpu
+# sentence-transformers
+# pydantic
+# pypdf
+# reportlab
+# torch
+# python-dotenv
+# graphviz
+pip
+streamlit
+streamlit-modal
+requests
+jinja2
+langchain-groq
+langchain-core
+langchain
+langchain-community
+langchain_text_splitters
+faiss-cpu
+transformers
+sentence-transformers
+python-dotenv
+torch
+reportlab
+pydantic
+graphviz
+langgraph
+PyPDF2
+PyMuPDF

@@ -1,0 +1,31 @@
+{
+  "repository": "Comuter-Vision",
+  "readme": "",
+  "requirements": "",
+  "files_name": [
+    ".gitignore",
+    "FaceRecognision/AttendaceProject.py",
+    "FaceRecognision/Attendance.csv",
+    "FaceRecognision/FaceRecog.py",
+    "FaceRecognision/ImagesAttendace/Elon_Musk.jpg",
+    "FaceRecognision/ImagesAttendace/bill_gates.jpg",
+    "FaceRecognision/ImagesAttendace/harsh.jpg",
+    "FaceRecognision/ImagesAttendace/taha.jpg",
+    "FaceRecognision/ImagesAttendace/test_elon_musk.jpg",
+    "Parking Space Detector/myenv/CarParkPos",
+    "Parking Space Detector/myenv/ParkingSpacePicker.py",
+    "Parking Space Detector/myenv/carPark.mp4",
+    "Parking Space Detector/myenv/carParkImg.png",
+    "Parking Space Detector/myenv/main.py",
+    "Parking Space Detector/myenv/readme.md",
+    "dragAnddrop/DragAndDrop.py",
+    "gestureControl/gesture_control.py",
+    "handDistance/handDistance.py",
+    "objectDetector/coco.names",
+    "objectDetector/image.png",
+    "objectDetector/lena.png",
+    "objectDetector/main.py",
+    "objectDetector/sfrozen_inference_graph.pb",
+    "objectDetector/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
+  ]
+}
