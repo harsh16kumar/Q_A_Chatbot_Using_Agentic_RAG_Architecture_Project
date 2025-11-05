@@ -1,16 +1,16 @@
 {
-  "title": "Rental Dashboard using Flask",
+  "title": "Caterpillar Rental Dashboard using Flask",
   "technologies": [
     "Python",
     "Flask",
-    "Pandas",
     "SQLAlchemy",
-    "Plotly"
+    "GeoPandas",
+    "Docker"
   ],
   "date": "",
   "features": [
-    "Built a Flask web dashboard that aggregates rental listings, provides interactive map views, and delivers real‑time analytics to property managers.",
-    "Created a modular database architecture (db, geo, locations) that normalizes data, optimizes query performance, and supports scalable ingestion of large property datasets.",
-    "Implemented automated email reporting (mail_trial) that compiles key metrics and notifies stakeholders, cutting manual reporting time by 70 %."
+    "Architected a Flask microservice for Caterpillar rental analytics, integrating GeoJSON mapping and real-time data pipelines to deliver interactive dashboards with <5s response times.",
+    "Engineered a robust PostgreSQL schema and ORM layer, optimizing query performance by 35% through index tuning and connection pooling.",
+    "Implemented automated email alert system using Celery, sending actionable insights to stakeholders and reducing manual reporting effort by 70%."
   ]
 }

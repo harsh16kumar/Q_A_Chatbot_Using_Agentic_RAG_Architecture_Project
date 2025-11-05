@@ -1,15 +1,15 @@
 {
-  "title": "Quality Anomaly Detection using Random Forest",
+  "title": "Anomaly Detection using Random Forest",
   "technologies": [
     "Python",
     "Streamlit",
-    "scikit-learn",
-    "Docker"
+    "Pandas",
+    "scikit-learn"
   ],
   "date": "",
   "features": [
-    "Trained a Random Forest classifier on sensor data, achieving high predictive accuracy for product quality classification.",
-    "Engineered a Z‑score anomaly detection module that calculates per‑feature deviations, ranks top contributors, and produces a weighted anomaly score (1–100%) for real‑time outlier identification.",
-    "Built a Streamlit dashboard that deploys the model, scales features, visualizes predictions, anomaly scores, and top contributing features for interactive data exploration."
+    "Developed a production-ready anomaly detection pipeline that trains a Random Forest classifier, scales features, and applies Z‑score based deviation scoring to flag sensor anomalies with a weighted 1–100% score.",
+    "Engineered feature importance extraction to surface the top 7 contributing attributes for each flagged anomaly, enabling actionable insights for quality control teams.",
+    "Containerized the solution with a .devcontainer, packaged the model, scaler, and statistical parameters into pickle files, and generated comprehensive CSV outputs for downstream analysis."
   ]
 }

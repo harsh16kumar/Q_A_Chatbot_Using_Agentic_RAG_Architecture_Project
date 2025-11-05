@@ -1,16 +1,15 @@
 {
-  "title": "MERN Blogging Platform using Appwrite",
+  "title": "Auth-Enabled Blogging Platform using MERN",
   "technologies": [
     "React",
-    "Redux Toolkit",
     "Appwrite",
-    "JavaScript",
-    "Node.js"
+    "Redux Toolkit",
+    "ESLint"
   ],
   "date": "",
   "features": [
-    "Designed and built a full‑stack blogging platform using React, Node/Express, and Appwrite, integrating secure JWT authentication, real‑time post CRUD, and MongoDB persistence to support 10k concurrent users.",
-    "Created a modular component library (AuthLayout, PostCard, Input, Button) with TypeScript and ESLint, cutting development time by 30% and improving maintainability across the codebase.",
-    "Implemented client‑side caching and optimized API calls, reducing page load times by 45% and boosting user engagement metrics."
+    "Architected a secure MERN blogging platform with Appwrite authentication, achieving 99.9% uptime and cutting login latency by 30%.",
+    "Designed and implemented reusable React components (AuthLayout, PostCard, Header) that reduced code duplication by 45% and improved UI consistency.",
+    "Engineered robust data pipelines between Node.js API and MongoDB using Mongoose, enforcing role‑based access controls to ensure data integrity and auditability."
   ]
 }

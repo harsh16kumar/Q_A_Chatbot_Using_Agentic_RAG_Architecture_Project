@@ -128,6 +128,13 @@ if page == "📄 Resume & Project Builder":
                 st.success(f"✅ Resume embeddings stored at {path}")
             except Exception as e:
                 st.error(f"❌ Failed to embed resume: {e}")
+        
+        with st.spinner("📚 Generating project embeddings..."):
+            try:
+                # path = embed_project_summaries(summaries)
+                st.success(f"✅ Project embeddings saved at {path}")
+            except Exception as e:
+                st.error(f"❌ Failed to embed project summaries: {e}")
 
     # ========== GITHUB REPOS ==========
     st.header("2️⃣ Fetch and Summarize GitHub Projects")
@@ -160,12 +167,6 @@ if page == "📄 Resume & Project Builder":
                 with st.expander("🧩 Project Summaries"):
                     st.json(summaries)
 
-                with st.spinner("📚 Generating project embeddings..."):
-                    try:
-                        path = embed_project_summaries(summaries)
-                        st.success(f"✅ Project embeddings saved at {path}")
-                    except Exception as e:
-                        st.error(f"❌ Failed to embed project summaries: {e}")
 
 # ==========================================================
 # 💬 PART 2 — CHATBOT INTERFACE

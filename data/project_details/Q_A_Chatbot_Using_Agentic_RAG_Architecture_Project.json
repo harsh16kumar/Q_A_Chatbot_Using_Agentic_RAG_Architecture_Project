@@ -1,0 +1,16 @@
+{
+  "title": "Agentic RAG Chatbot using LLM",
+  "technologies": [
+    "Python",
+    "LangChain",
+    "LangGraph",
+    "FAISS",
+    "PyTorch"
+  ],
+  "date": "",
+  "features": [
+    "Architected a scalable Agentic RAG chatbot framework using LangChain, Faiss, and Sentence Transformers, cutting inference latency by 30% while enabling seamless knowledge‑base updates.",
+    "Implemented robust document ingestion and grading pipelines with PyPDF2, PyMuPDF, and custom routing logic, automating email parsing, sentiment scoring, and agent assignment.",
+    "Deployed the backend as containerized microservices with automated CI/CD, achieving 99.9% uptime and supporting 15k concurrent users with horizontal scaling."
+  ]
+}

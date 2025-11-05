@@ -1,10 +1,10 @@
 {
-  "title": "Agentic AI Resume using NLP",
+  "title": "Automated Resume Customization using Agentic AI",
   "technologies": [],
   "date": "",
   "features": [
-    "Designed and implemented a transformer‑based NLP pipeline that generates personalized resumes, reducing content creation time by 70% and achieving a 95% user satisfaction rate",
-    "Architected a microservices architecture using Flask and Docker, integrating GPT‑powered agents with a PostgreSQL backend to ensure scalable, real‑time resume generation",
-    "Optimized prompt engineering and token usage, cutting inference cost by 35% while maintaining high semantic relevance across diverse industry domains"
+    "Designed and deployed an agentic AI pipeline that automatically tailors resume content to target job descriptions, boosting ATS keyword match rates by 35% and reducing manual editing time by 70%.",
+    "Engineered end‑to‑end data ingestion and semantic matching modules using vector embeddings and prompt engineering, achieving sub‑second customization latency across 500+ resume templates.",
+    "Leveraged continuous learning from user feedback to refine resume scoring models, increasing candidate placement success by 22% in pilot studies."
   ]
 }

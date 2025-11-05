@@ -1,95 +1,3 @@
-# import requests
-# from typing import List, Dict
-
-# # Keep the prior heuristics and README extraction logic here.
-
-# def fetch_github_repos(username: str) -> List[Dict]:
-#     url = f"https://api.github.com/users/{username}/repos"
-#     resp = requests.get(url)
-#     if resp.status_code != 200:
-#         print(f"GitHub API error: {resp.status_code}")
-#         return []
-#     return resp.json()
-
-# def fetch_repo_files(owner: str, repo: str) -> List[str]:
-#     url = f"https://api.github.com/repos/{owner}/{repo}/contents"
-#     resp = requests.get(url)
-#     if resp.status_code != 200:
-#         return []
-#     return [f["name"] for f in resp.json() if f["type"] == "file"]
-
-# def fetch_readme(owner: str, repo: str) -> str:
-#     url = f"https://raw.githubusercontent.com/{owner}/{repo}/main/README.md"
-#     resp = requests.get(url)
-#     if resp.status_code == 200:
-#         return resp.text
-#     url = f"https://raw.githubusercontent.com/{owner}/{repo}/master/README.md"
-#     resp = requests.get(url)
-#     if resp.status_code == 200:
-#         return resp.text
-#     return ""
-
-# def analyze_project(owner: str, repo: str) -> Dict:
-#     files = fetch_repo_files(owner, repo)
-#     project_info = {
-#         "repo": repo,
-#         "summary": "",
-#         "features": [],
-#         "packages": [],
-#         "technologies": []
-#     }
-
-#     # Basic heuristics
-#     if "package.json" in files:
-#         project_info["features"].append("Node/React Project")
-#         url = f"https://raw.githubusercontent.com/{owner}/{repo}/main/package.json"
-#         resp = requests.get(url)
-#         if resp.status_code == 200:
-#             try:
-#                 content = resp.json()
-#                 deps = list(content.get("dependencies", {}).keys())
-#                 project_info["packages"].extend(deps)
-#             except Exception:
-#                 pass
-
-#     if "requirements.txt" in files:
-#         project_info["features"].append("Python Project")
-#         url = f"https://raw.githubusercontent.com/{owner}/{repo}/main/requirements.txt"
-#         resp = requests.get(url)
-#         if resp.status_code == 200:
-#             pkgs = [p.strip() for p in resp.text.splitlines() if p.strip()]
-#             project_info["packages"].extend(pkgs)
-
-#     # fetch README for summary (non-LLM fallback)
-#     readme_text = fetch_readme(owner, repo)
-#     if readme_text:
-#         # simple heuristic summary: first non-empty paragraph
-#         paragraphs = [p.strip() for p in readme_text.split("\n\n") if p.strip()]
-#         project_info["summary"] = paragraphs[0][:800] if paragraphs else ""
-
-#         # try to capture tech mentions (simple heur)
-#         techs = []
-#         keywords = ["django", "flask", "react", "node", "express", "tensorflow", "torch", "keras", "sklearn"]
-#         lower = readme_text.lower()
-#         for k in keywords:
-#             if k in lower:
-#                 techs.append(k)
-#         project_info["technologies"] = list(set(techs))
-
-#     # identify deep-learning by packages
-#     dl_keywords = ["torch", "tensorflow", "keras", "sklearn"]
-#     if any(any(k in pkg.lower() for k in dl_keywords) for pkg in project_info["packages"]):
-#         project_info["features"].append("Deep Learning Project")
-
-#     return project_info
-
-# def fetch_and_analyze_github(username: str) -> List[Dict]:
-#     repos = fetch_github_repos(username)
-#     projects = []
-#     for r in repos:
-#         name = r.get("name")
-#         projects.append(analyze_project(username, name))
-#     return projects
 import requests
 import base64
 import ast
@@ -103,11 +11,26 @@ load_dotenv()
 # ========== CONFIG ==========
 EXCLUDED_DIRS = {"venv", "__pycache__", "node_modules", "dist", "build", ".git"}
 INCLUDE_EXTENSIONS = {".py", ".js", ".ts", ".ipynb", ".java"}
-MAX_FILE_SIZE = os.getenv("MAX_FILE_SIZE")          # bytes (50 KB)
-MAX_LINES = os.getenv("MAX_LINES")                # lines per file
+
+
+def safe_int_env(var_name: str, default: int) -> int:
+    val = os.getenv(var_name)
+    try:
+        return int(val) if val is not None else default
+    except ValueError:
+        return default
+
 OUTPUT_DIR = "data/github_repos"
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"} if GITHUB_TOKEN else {}
+
+
+
+
+MAX_FILE_SIZE = safe_int_env("MAX_FILE_SIZE", 50000)  # default 50 KB
+MAX_LINES = safe_int_env("MAX_LINES", 500)            # default 500 lines
+
+
 
 
 # ---------- CORE FETCHERS ----------
@@ -235,15 +158,6 @@ def fetch_and_analyze_github(username: str):
         print(f"[SAVED] 💾 {save_path}")
 
     return results
-
-
-# def fetch_and_analyze_github(username: str) -> List[Dict]:
-#     repos = fetch_github_repos(username)
-#     projects = []
-#     for r in repos:
-#         name = r.get("name")
-#         projects.append(analyze_project(username, name))
-#     return projects
 
 
 if __name__ == "__main__":

@@ -1,14 +1,16 @@
 {
-  "title": "Web App using Node.js",
+  "title": "Demo App using Node.js",
   "technologies": [
     "Node.js",
-    "JavaScript",
+    "Express",
+    "Python",
+    "Flask",
     "React"
   ],
   "date": "",
   "features": [
-    "Designed and implemented a modular Node.js web application with clear separation of concerns across app.js, constants.js, and index.js, ensuring maintainability and scalability.",
-    "Optimized request handling and middleware pipelines, reducing average response time by 30% and enabling seamless integration of third‑party services.",
-    "Configured environment‑aware deployment scripts via package.json scripts and CI/CD hooks, delivering automated builds, linting, and unit tests for reliable production releases."
+    "Engineered a modular Node.js REST API, orchestrating middleware, routing, and environment configuration across src/app.js, src/constants.js, and src/index.js to deliver scalable, testable endpoints.",
+    "Designed and maintained a clean dependency graph in package.json, leveraging npm scripts and semantic versioning to ensure reproducible builds and continuous integration readiness.",
+    "Implemented robust error handling and logging, integrating third‑party services (e.g., Winston) to provide real‑time monitoring and actionable insights for end‑to‑end system reliability."
   ]
 }

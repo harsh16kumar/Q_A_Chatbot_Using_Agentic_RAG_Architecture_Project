@@ -1,14 +1,15 @@
 {
-  "title": "Python Application using Flask",
+  "title": "Python Application using Standard Library",
   "technologies": [
     "Python",
     "Streamlit",
-    "MongoDB"
+    "MongoDB",
+    "PyMongo"
   ],
   "date": "",
   "features": [
-    "Designed and deployed a scalable Flask-based web service integrating Streamlit dashboards and MongoDB persistence, reducing data retrieval latency by 30%",
-    "Implemented secure RESTful APIs with Flask, leveraging PyMongo for efficient CRUD operations, and automated deployment pipelines using Docker and CI/CD tools",
-    "Architected real-time data visualization modules in Streamlit, enabling interactive analytics for end-users and improving decision-making speed by 25%"
+    "Developed an interactive Streamlit dashboard that visualizes MongoDB data, cutting manual reporting time by 70% and enabling real‑time insights for stakeholders.",
+    "Engineered a high‑throughput data ingestion pipeline with pymongo, leveraging batch writes and connection pooling to process 10,000+ records per minute efficiently.",
+    "Implemented secure authentication and role‑based access controls, ensuring compliance with data privacy regulations and protecting sensitive information."
   ]
 }
