@@ -100,8 +100,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MAX_FILE_SIZE = os.getenv("MAX_FILE_SIZE")
-MAX_LINES = os.getenv("MAX_LINES")
+# ========== CONFIG ==========
+EXCLUDED_DIRS = {"venv", "__pycache__", "node_modules", "dist", "build", ".git"}
+INCLUDE_EXTENSIONS = {".py", ".js", ".ts", ".ipynb", ".java"}
+MAX_FILE_SIZE = os.getenv("MAX_FILE_SIZE")          # bytes (50 KB)
+MAX_LINES = os.getenv("MAX_LINES")                # lines per file
 OUTPUT_DIR = "data/github_repos"
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"} if GITHUB_TOKEN else {}
