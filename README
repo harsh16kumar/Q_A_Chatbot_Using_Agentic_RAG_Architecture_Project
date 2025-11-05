@@ -1,0 +1,198 @@
+🚀 Agentic RAG Chatbot — with Intelligent Meeting Scheduler
+
+An advanced Agentic RAG (Retrieval-Augmented Generation) chatbot that integrates:
+
+Multi-agent reasoning (Router, Retriever, Grader)
+
+FAISS vector retrieval over user resume & projects
+
+LLM-driven decision routing (Groq API)
+
+Automatic meeting scheduling via email trigger
+
+This system not only answers context-aware questions using vector embeddings but also takes action — like scheduling meetings automatically when requested.
+
+🧩 Architecture Overview
+🧠 Agents Involved
+Agent	Role	Description
+Router Agent (LLM-A)	Route Decider	Determines whether the query should use resume, project, or meeting data.
+Retriever Agent (LLM-A + FAISS)	Knowledge Fetcher	Retrieves the most relevant information from the embedded FAISS stores.
+Grader Agent (LLM-B)	Evaluator	Evaluates if the generated answer fully satisfies the user query.
+Meeting Node (Action Agent)	Executor	If the user requests a meeting, triggers an automated email notification.
+🏗️ Project Structure
+📦 Agentic-RAG-Chatbot/
+│
+├── backend/
+│   ├── app/
+│   │   └── services/
+│   │       └── agentic_rag_service.py       # Main agent pipeline
+│   ├── data/
+│   │   ├── embeddings/
+│   │   │   ├── resume/resume_index/         # FAISS index for resume
+│   │   │   └── projects/projects_index/     # FAISS index for projects
+│   │   └── user_data.json                   # User resume JSON (raw)
+│   └── .env                                 # Environment variables
+│
+├── frontend/
+│   └── streamlit_app.py                     # Streamlit UI (if any)
+│
+├── requirements.txt
+└── README.md
+
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/<your-username>/Agentic-RAG-Chatbot.git
+cd Agentic-RAG-Chatbot
+
+2️⃣ Create and activate a virtual environment
+python -m venv venv
+venv\Scripts\activate   # On Windows
+# or
+source venv/bin/activate  # On macOS/Linux
+
+3️⃣ Install dependencies
+pip install -r requirements.txt
+
+4️⃣ Set up your .env file
+
+Create a .env in the root directory with the following variables:
+
+# --- LLM API Keys ---
+GROQ_API_KEY_1=your_groq_key_1
+GROQ_API_KEY_2=your_groq_key_2
+GROQ_API_KEY_3=your_groq_key_3
+
+# --- Email Credentials (App Password Required for Gmail) ---
+EMAIL_USER=yourbot@gmail.com
+EMAIL_PASS=your_app_password
+
+# --- Default Fallback Email (if user_data.json missing email) ---
+DEFAULT_USER_EMAIL=test@example.com
+
+
+📧 Note: For Gmail, generate an App Password from
+👉 Google App Passwords
+
+🧠 How It Works
+🔹 Step 1: Routing
+
+The Router Agent (LLM-A) classifies your query as:
+
+resume
+
+project
+
+both
+
+meeting
+
+🔹 Step 2: Retrieval (FAISS)
+
+If not a meeting, it retrieves the most relevant embeddings from FAISS:
+
+resume_index (personal background)
+
+projects_index (GitHub/tech projects)
+
+🔹 Step 3: LLM Response Generation
+
+Combines retrieved context with raw user JSON (user_data.json)
+and generates a context-grounded answer using the Groq-hosted model.
+
+🔹 Step 4: Meeting Trigger
+
+If query or LLM output includes scheduling intent,
+meeting_scheduler_node() sends a confirmation email automatically.
+
+🔹 Step 5: Grading (Optional)
+
+The Grader Agent validates if the response is relevant and factual.
+If failed, the system retries automatically with improved prompts.
+
+🧩 Key Code Snippets
+🔍 Meeting Detection and Early Exit
+if source == "meeting":
+    meeting_scheduler_node("schedule a meeting")
+    return "✅ Meeting scheduled! Email notification sent."
+
+📧 Email Sending Logic
+def send_meeting_email(to_email, subject, body):
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(os.getenv("EMAIL_USER"), os.getenv("EMAIL_PASS"))
+        server.sendmail(os.getenv("EMAIL_USER"), to_email, body)
+
+🧠 Router Agent Example
+prompt = """
+You are a routing AI that decides which knowledge base or action to use.
+
+Available routes:
+1. resume
+2. project
+3. meeting
+4. both
+"""
+
+🧾 Example Usage
+✅ Query 1: Resume Context
+User: What is my CGPA?
+Router decided: resume
+→ Retrieves FAISS resume embeddings
+→ Returns “Your CGPA is 9.14.”
+
+✅ Query 2: Project Context
+User: Explain my smart refrigerator project.
+Router decided: project
+→ Retrieves FAISS project data
+→ Returns “Smart Refrigerator optimizes cooling and auto-orders items.”
+
+✅ Query 3: Action Node (Meeting)
+User: Schedule a meeting with HR tomorrow.
+Router decided: meeting
+→ Triggers email notification
+→ Chat ends early
+
+
+Email received:
+
+Subject: 📅 Meeting Scheduled Notification
+Body:
+Hello Harsh,
+
+A meeting has been successfully scheduled as per your request.
+Details will follow shortly.
+
+– Agentic RAG Bot 🤖
+
+🧩 Technologies Used
+Component	Technology
+Embeddings	sentence-transformers/all-MiniLM-L6-v2
+Vector DB	FAISS
+LLM Provider	Groq API (ChatGroq)
+Backend Framework	Python
+Email Service	Gmail SMTP (TLS/SSL)
+Optional UI	Streamlit
+Environment	.env configuration
+🧠 Future Improvements
+
+🗓️ Extract meeting time & participants from natural language queries.
+
+📅 Generate calendar invites (.ics) automatically.
+
+🧩 Integrate with Google Calendar API for live scheduling.
+
+💬 Multi-turn memory (store previous queries).
+
+⚙️ Docker containerization for full-stack deployment.
+
+💡 Author
+
+Harsh Kumar
+👨‍💻 B.Tech CSE | AI/ML & Agentic RAG Enthusiast
+📧 [harsh@example.com
+]
+🌐 GitHub: @harsh16kumar
+
+🏁 License
+
+This project is licensed under the MIT License.
+Feel free to use, modify, and share with attribution.
